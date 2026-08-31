@@ -20,12 +20,22 @@ public class Main {
     }
 
     public static int doCalculation() {
-	return 1 + 2;
+	return 1 + 2 + 1;
     }
 
     public static void main(String[] args) throws IOException {
 	String filename = getFilename(args);
-	int result = doCalculation();
+
+	// do we really need another method?
+	// int result = 1 + 2; // less code, fewer clock cycles
+	int result = doCalculation(); // more modular
+
+	// int result2 = 1 + 2;
+	// int result2 = doCalculation();
+
+	// Two different ways to write
+	// if/else implies mutual exclusion, but it's
+	// the same sort of thing
 	if (filename == null) {
 	    // write to terminal
 	    System.out.println(result);
