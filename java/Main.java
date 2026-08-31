@@ -3,6 +3,10 @@ import java.io.IOException;
 
 // Motivate ad-hoc polymorphism with a code example
 //
+// Possible destinations:
+// 1.) Terminal
+// 2.) File
+//
 // -Program that takes some command-line input
 //   -Input either empty or it's a file name
 //   -Empty input: write output to terminal
@@ -19,8 +23,21 @@ public class Main {
 	}
     }
 
+    // let's say this runs a long time...
     public static int doCalculation() {
-	return 1 + 2 + 1;
+	int result = 0;
+	for (int x = ...; x < ...; ...x...) {
+	    // runs for awhile
+	    result = x * ...;
+
+	    // problem: lots of output.  Solution:
+	    // output only sometimes.
+	    if (x % 10000) {
+		System.out.println(result);
+	    }
+	}
+	
+	return result;
     }
 
     public static void main(String[] args) throws IOException {
