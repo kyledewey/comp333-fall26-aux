@@ -23,9 +23,23 @@ public class Main {
 	return 1 + 2;
     }
 
+    // NEXT TIME: doCalculation prints stuff
     public static void main(String[] args) throws IOException {
 	String filename = getFilename(args);
-	int result = doCalculation();
+
+	// why whole method?
+	int result = 1 + 2; // less lines of code,
+	                    // more clear than doCalculation()
+	                    // efficiency
+	// only using function once! - multiple calls
+	
+	int result = doCalculation(); // modularity
+	                              // cutting code duplication
+	                              // "what it means": intention
+
+	int result2 = 1 + 2;
+	int result2 = doCalculation();
+
 	if (filename == null) {
 	    // write to terminal
 	    System.out.println(result);
