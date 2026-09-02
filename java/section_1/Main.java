@@ -6,6 +6,7 @@ import java.io.IOException;
 // Possible destinations:
 // 1.) Terminal
 // 2.) File
+// 3.) Network
 //
 // -Program that takes some command-line input
 //   -Input either empty or it's a file name
@@ -32,17 +33,6 @@ public class Main {
     // write("abc");
     // write("def");
     // close();
-
-    // takes the thing to write
-    public static void write(FileWriter writer, int result) {
-	if (writer == null) {
-	    // write to terminal
-	    System.out.println(result);
-	} else {
-	    // write to file
-	    writer.write("" + result + "\n");
-	}
-    }
     
     // let's say this runs a long time...
     public static int doCalculation(FileWriter writer) {
