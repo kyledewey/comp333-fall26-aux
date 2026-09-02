@@ -14,7 +14,7 @@ import java.io.IOException;
 // -Program itself does some calculation
 //  (doesn't matter what)
 public class Main {
-    public static FileWriter writer = null;
+    //public static FileWriter writer = null;
 
     // returns null if no filename
     public static String getFilename(String[] args) {
@@ -33,7 +33,8 @@ public class Main {
     // write("def");
     // close();
 
-    public static void write(int result) {
+    // takes the thing to write
+    public static void write(FileWriter writer, int result) {
 	if (writer == null) {
 	    // write to terminal
 	    System.out.println(result);
@@ -44,7 +45,7 @@ public class Main {
     }
     
     // let's say this runs a long time...
-    public static int doCalculation() {
+    public static int doCalculation(FileWriter writer) {
 	int result = 0;
 	for (int x = ...; x < ...; ...x...) {
 	    // runs for awhile
@@ -63,7 +64,7 @@ public class Main {
 	    // problem: lots of output.  Solution:
 	    // output only sometimes.
 	    if (x % 10000) {
-		write(result);
+		write(writer, result);
 	    }
 	}
 
@@ -72,6 +73,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	String filename = getFilename(args);
+	FileWriter writer = null;
 	if (filename != null) {
 	    writer = new FileWriter(filename);
 	}
@@ -86,7 +88,7 @@ public class Main {
 	// Two different ways to write
 	// if/else implies mutual exclusion, but it's
 	// the same sort of thing
-	write(result);
+	write(writer, result);
 
 	if (writer != null) {
 	    writer.close();
