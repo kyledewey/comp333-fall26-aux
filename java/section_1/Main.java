@@ -19,11 +19,7 @@ public class Main {
 
     // returns null if no filename
     public static String getFilename(String[] args) {
-	if (args.length == 0) {
-	    return null;
-	} else {
-	    return args[0];
-	}
+	return ...;
     }
 
     // foo.txt
@@ -35,7 +31,7 @@ public class Main {
     // close();
     
     // let's say this runs a long time...
-    public static int doCalculation(FileWriter writer) {
+    public static int doCalculation(WriteDestination dest) {
 	int result = 0;
 	for (int x = ...; x < ...; ...x...) {
 	    // runs for awhile
@@ -54,23 +50,34 @@ public class Main {
 	    // problem: lots of output.  Solution:
 	    // output only sometimes.
 	    if (x % 10000) {
-		write(writer, result);
+		dest.write(result);
 	    }
 	}
 
 	return result;
     }
 
+    public static String getNetworkLocation(String[] args) {
+	return ...;
+    }
+    
     public static void main(String[] args) throws IOException {
 	String filename = getFilename(args);
-	FileWriter writer = null;
-	if (filename != null) {
-	    writer = new FileWriter(filename);
+	String networkLocation = getNetworkLocation(args);
+	WriteDestination dest = null;
+	if (filename != null && networkLocation != null) {
+	    System.out.println("Only one destination");
+	} else if (filename != null) {
+	    dest = new WriteDestination(new FileWriter(filename));
+	} else if (networkLocation != null) {
+	    dest = new WriteDestination(new NetworkWriter(new NetLocation(networkLocation)));
+	} else {
+	    dest = new WriteDestination();
 	}
 
 	// do we really need another method?
 	// int result = 1 + 2; // less code, fewer clock cycles
-	int result = doCalculation(filename); // more modular
+	int result = doCalculation(dest); // more modular
 
 	// int result2 = 1 + 2;
 	// int result2 = doCalculation();
@@ -78,11 +85,8 @@ public class Main {
 	// Two different ways to write
 	// if/else implies mutual exclusion, but it's
 	// the same sort of thing
-	write(writer, result);
-
-	if (writer != null) {
-	    writer.close();
-	}
+	dest.write(result);
+	dest.close();
     }
 }
 
