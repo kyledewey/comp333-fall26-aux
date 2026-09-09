@@ -1,8 +1,5 @@
 // FOR WEDNESDAY: finish refactor 
 public class WriteDestination {
-    private FileWriter fileWriter;
-    private NetworkWriter netWriter;
-
     // public WriteDestination(FileWriter fileWriter,
     // 			    NetworkWriter netWriter) {
     // 	this.fileWriter = fileWriter;
@@ -30,6 +27,17 @@ public class WriteDestination {
     // public void setFileWriter(FileWriter fileWriter) {
     // 	this.fileWriter = fileWriter;
     // }
+
+    // ad-hoc polymorphism: actual method called is determined
+    // at runtime
+
+    // subtyping polymorphism: if we want something of one type,
+    // a more specific type also works
+    //
+    // public static void takesObject(Object obj) { ... }
+    //
+    // takesObject(new Object());
+    // takesObject("foo");
     
     // takes the thing to write
     public void write(int result) {
