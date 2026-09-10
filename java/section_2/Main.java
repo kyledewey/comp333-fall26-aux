@@ -3,6 +3,11 @@ import java.io.IOException;
 
 // Motivate ad-hoc polymorphism with a code example
 //
+// Possible output destinations:
+// 1.) Terminal
+// 2.) File
+// 3.) Network location
+//
 // -Program that takes some command-line input
 //   -Input either empty or it's a file name
 //   -Empty input: write output to terminal
@@ -20,30 +25,19 @@ public class Main {
 	    return args[0];
 	}
     }
-
-    public static void write(FileWriter writer,
-			     int result) {
-	if (writer == null) {
-	    // write to terminal
-	    System.out.println(result);
-	} else {
-	    // write to file
-	    writer.write("" + result + "\n");
-	}
-    }
     
-    public static int doCalculation(FileWriter writer) {
+    public static int doCalculation(WriteDestination dest) {
 	int result = 0;
 	for (int x = ...; x < ...; x++) {
 	    result += ...x...;
 	    if (x % 10000 == 0) {
-		write(writer, result);
+		// write(dest, result);
+		dest.write(result);
 	    }
 	}
 	return result;
     }
 
-    // NEXT TIME: address issue of null writer / multiple destinations
     public static void main(String[] args) throws IOException {
 	String filename = getFilename(args);
 	FileWriter writer = null;
