@@ -2,7 +2,7 @@
 //
 // WriteDestination dest1 = new WriteDestination();
 // WriteDestination dest2 = new WriteDestination();
-public abstract class WriteDestination {
+public interface WriteDestination {
     // ad-hoc polymorphism: actual method called is determined
     // at runtime
 
@@ -15,6 +15,6 @@ public abstract class WriteDestination {
     // takesObject("foo");
     
     // takes the thing to write
-    public abstract void write(int result);    
-    public abstract void close();
+    public void write(int result);    
+    public void close();
 }
