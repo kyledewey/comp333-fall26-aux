@@ -6,7 +6,7 @@
 // NEXT TIME: refactor networkwriter, ad-hoc polymorphism,
 //            subtyping polymorphism
 // 
-public FileDestination extends WriteDestination {
+public class FileDestination extends WriteDestination {
     private final FileWriter fileWriter;
 
     public WriteDestination(FileWriter fileWriter) {

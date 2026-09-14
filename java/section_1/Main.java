@@ -65,14 +65,18 @@ public class Main {
 	String filename = getFilename(args);
 	String networkLocation = getNetworkLocation(args);
 	WriteDestination dest = null;
+
 	if (filename != null && networkLocation != null) {
 	    System.out.println("Only one destination");
 	} else if (filename != null) {
-	    dest = new WriteDestination(new FileWriter(filename));
+	    // subtyping polymorphism: you can exchange
+	    // a more specific type when you wanted a more
+	    // general type
+	    dest = new FileDestination(new FileWriter(filename));
 	} else if (networkLocation != null) {
-	    dest = new WriteDestination(new NetworkWriter(new NetLocation(networkLocation)));
+	    dest = new NetworkDestination(new NetworkWriter(new NetLocation(networkLocation)));
 	} else {
-	    dest = new WriteDestination();
+	    dest = new TerminalDestination();
 	}
 
 	// do we really need another method?
@@ -85,6 +89,18 @@ public class Main {
 	// Two different ways to write
 	// if/else implies mutual exclusion, but it's
 	// the same sort of thing
+
+	// the version of write that's actually called
+	// depends on the runtime type of dest
+	// 
+	// ad-hoc polymorphism: runtime type of dest
+	// determines which write method gets called
+	//
+	// dest could be a TerminalDestination, FileDestination,
+	// or a NetworkDestination at runtime...but at compile
+	// time, it's WriteDestination
+
+	// dest = new WriteDestination(); // won't compile
 	dest.write(result);
 	dest.close();
     }
