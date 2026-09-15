@@ -40,9 +40,20 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	String filename = getFilename(args);
-	FileWriter writer = null;
-	if (filename != null) {
-	    writer = new FileWriter(filename);
+	String networkLocation = getNetworkLocation(args);
+	WriteDestination writer = null;
+	if (filename != null && networkLocation != null) {
+	    System.out.println("Only one destination");
+	} else if (filename != null) {
+	    // WEDNESDAY: O(1) mechanism, interface
+	    // subtyping polymorphism: we can substitute
+	    // a more specific type when we wanted a more
+	    // general type
+	    writer = new FileDestination(new FileWriter(filename));
+	} else if (networkLocation != null) {
+	    writer = new NetworkDestination(new NetworkWriter(networkLocation));
+	} else {
+	    writer = new TerminalDestination();
 	}
 	
 	// why whole method?
@@ -57,7 +68,12 @@ public class Main {
 
 	// int result2 = 1 + 2;
 	// int result2 = doCalculation();
-	write(writer, result);
+
+	// runtime type of writer determines which write
+	// method actually gets called - ad-hoc polymorphism
+	//
+	// runtime type: TerminalDestination -> TerminalDestination's write method
+	writer.write(result);
 	
 	if (writer != null) {
 	    writer.close();
