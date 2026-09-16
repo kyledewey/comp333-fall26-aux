@@ -1,1 +1,9 @@
+# Emacs junk
 *~
+\#*\#
+
+# Mac junk
+.DS_Store
+
+# Compiled Java
+*.class
