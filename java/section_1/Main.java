@@ -64,6 +64,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 	String filename = getFilename(args);
 	String networkLocation = getNetworkLocation(args);
+
+	// dest compile-time type: WriteDestination
 	WriteDestination dest = null;
 
 	if (filename != null && networkLocation != null) {
@@ -71,8 +73,8 @@ public class Main {
 	} else if (filename != null) {
 	    // subtyping polymorphism: you can exchange
 	    // a more specific type when you wanted a more
-	    // general type
-	    dest = new FileDestination(new FileWriter(filename));
+	    // general type; compile-time thing
+	    dest = new FileDestination(new FileWriter(filename), new NetworkWriter(...));
 	} else if (networkLocation != null) {
 	    dest = new NetworkDestination(new NetworkWriter(new NetLocation(networkLocation)));
 	} else {
@@ -94,13 +96,20 @@ public class Main {
 	// depends on the runtime type of dest
 	// 
 	// ad-hoc polymorphism: runtime type of dest
-	// determines which write method gets called
+	// determines which write method gets called;
+	// happens at runtime
 	//
 	// dest could be a TerminalDestination, FileDestination,
 	// or a NetworkDestination at runtime...but at compile
 	// time, it's WriteDestination
 
 	// dest = new WriteDestination(); // won't compile
+	//
+	// if (dest is a TerminalDestination) {
+	//   run TerminalDestination's write
+	// } else if (dest is a FileDestination) {
+	//   run FileDestination's write
+	// } ...
 	dest.write(result);
 	dest.close();
     }

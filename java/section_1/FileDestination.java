@@ -9,7 +9,7 @@
 public class FileDestination extends WriteDestination {
     private final FileWriter fileWriter;
 
-    public WriteDestination(FileWriter fileWriter) {
+    public FileDestination(FileWriter fileWriter) {
 	this.fileWriter = fileWriter;
     }
 
