@@ -45,10 +45,9 @@ public class Main {
 	if (filename != null && networkLocation != null) {
 	    System.out.println("Only one destination");
 	} else if (filename != null) {
-	    // WEDNESDAY: O(1) mechanism, interface
-	    // subtyping polymorphism: we can substitute
-	    // a more specific type when we wanted a more
-	    // general type
+	    // WriteDestination = FileDestination
+	    // compile-time thing
+	    // subtyping polymorphism
 	    writer = new FileDestination(new FileWriter(filename));
 	} else if (networkLocation != null) {
 	    writer = new NetworkDestination(new NetworkWriter(networkLocation));
@@ -73,6 +72,12 @@ public class Main {
 	// method actually gets called - ad-hoc polymorphism
 	//
 	// runtime type: TerminalDestination -> TerminalDestination's write method
+	//
+	// if (writer is a FileDestination) {
+	//   run FileDestination's write
+	// } else if (writer is a NetworkDestination) {
+	//   run NetworkDestination's write
+	// } ...
 	writer.write(result);
 	
 	if (writer != null) {
