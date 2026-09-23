@@ -4,4 +4,6 @@ public class TerminalDestination extends WriteDestination {
     public void write(int result) {
 	System.out.println(result);
     }
+
+    public void close() {}	
 }

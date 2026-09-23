@@ -1,5 +1,5 @@
-// FOR MONDAY: interfaces
-public abstract class WriteDestination {
-    public abstract void write(int result);
+public interface WriteDestination {
+    public void write(int result);
+    public void close();
 }
 

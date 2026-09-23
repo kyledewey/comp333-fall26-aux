@@ -79,10 +79,14 @@ public class Main {
 	//   run NetworkDestination's write
 	// } ...
 	writer.write(result);
-	
-	if (writer != null) {
-	    writer.close();
-	}
+	writer.close();
+	// if (writer instanceof FileDestination) {
+	//     FileDestination temp = (FileDestination)writer;
+	//     temp.close();
+	//     //((FileDestination)writer).close();
+	// } else if (writer instanceof NetworkDestination) {
+	//     ((NetworkDestination)writer).close();
+	// }
     }
 }
 

@@ -8,4 +8,8 @@ public class NetworkDestination extends WriteDestination {
     public void write(int result) {
 	netWriter.sendInteger(result);
     }
+
+    public void close() {
+	netWriter.disconnect();
+    }
 }
