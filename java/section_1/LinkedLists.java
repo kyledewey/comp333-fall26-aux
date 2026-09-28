@@ -1,19 +1,25 @@
+// FOR WEDNESDAY: go over assignment 1, methods on this
+//
 // Immutable Linked Lists
-// IList lst0 = new IList();      // lst0: []
-// IList lst1 = lst0.prepend(1);  // lst1: [1]
-//                                // lst0: []
-// IList lst2 = lst1.prepend(2);  // lst2: [2, 1]
-//                                // lst1: [1]
-//                                // lst0: []
-// IList lst3 = lst1.prepend(3);  // lst3: [3, 1]
-//                                // lst2: [2, 1]
-//                                // lst1: [1]
-//                                // lst0: []
-// IList lst4 = lst3.prepend(0);  // lst4: [0, 3, 1]
-//                                // lst3: [3, 1]
-//                                // lst2: [2, 1]
-//                                // lst1: [1]
-//                                // lst0: []
+// IList lst0 = new Nil();         // lst0: []
+// IList lst1 = new Cons(1, lst0); // lst0.prepend(1);
+//                                 // lst1: [1]
+//                                 // lst0: []
+// IList lst2 = new Cons(2, lst1); // lst1.prepend(2);
+//                                 // lst2: [2, 1]
+//                                 // lst1: [1]
+//                                 // lst0: []
+// IList lst3 = new Cons(3, lst1); // lst1.prepend(3);
+//                                 // lst3: [3, 1]
+//                                 // lst2: [2, 1]
+//                                 // lst1: [1]
+//                                 // lst0: []
+// IList lst4 = new Cons(0, lst3); // lst3.prepend(0);
+//                                 // lst4: [0, 3, 1]
+//                                 // lst3: [3, 1]
+//                                 // lst2: [2, 1]
+//                                 // lst1: [1]
+//                                 // lst0: []
 
 
 // class IList {
