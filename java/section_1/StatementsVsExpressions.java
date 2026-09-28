@@ -45,7 +45,9 @@ public class StatementsVsExpressions {
 	}
 
 	// rewritten:
-	Conditional c = (randomBoolean()) ? ... : ... ;
+	// compile-time type of c: Conditional
+	// runtime type of c: either Foo or Bar
+	Conditional c = (randomBoolean()) ? new Foo() : new Bar();
 	// Conditional is NOT a built-in
 	// Conditional MUST be defined by us
 	// Conditional is a type
