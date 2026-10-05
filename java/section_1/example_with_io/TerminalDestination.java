@@ -1,3 +1,4 @@
+//           TerminalDestination is a subtype of WriteDestination
 public class TerminalDestination extends WriteDestination {
     public TerminalDestination() {}
 

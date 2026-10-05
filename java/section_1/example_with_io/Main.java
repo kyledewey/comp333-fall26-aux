@@ -110,6 +110,14 @@ public class Main {
 	// } else if (dest is a FileDestination) {
 	//   run FileDestination's write
 	// } ...
+
+	// dest compile-time type: WriteDestination
+	// dest runtime type: one of FileDestination, or NetworkDestination,
+	// or a TerminalDestination
+	//
+	// runtime: we determine which actual method is called
+	// based on the runtime type - ad-hoc polymorphism
+	// (virtual dispatch)
 	dest.write(result);
 	dest.close();
     }

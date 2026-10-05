@@ -17,4 +17,8 @@ public interface WriteDestination {
     // takes the thing to write
     public void write(int result);    
     public void close();
+
+    List lst = new LinkedList();
+    // List = List       // normal behavior
+    // List = LinkedList // subtyping polymorphism
 }

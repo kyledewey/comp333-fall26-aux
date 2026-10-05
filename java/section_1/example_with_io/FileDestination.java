@@ -5,7 +5,8 @@
 // class FileDestination : WriteDestination 
 // NEXT TIME: refactor networkwriter, ad-hoc polymorphism,
 //            subtyping polymorphism
-// 
+//
+//           FileDestination is a subtype of WriteDestination
 public class FileDestination extends WriteDestination {
     private final FileWriter fileWriter;
 

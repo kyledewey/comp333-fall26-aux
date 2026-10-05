@@ -1,3 +1,4 @@
+//           NetworkDestination is a subtype of WriteDestination
 public class NetworkDestination extends WriteDestination {
     private final NetworkWriter netWriter;
 
