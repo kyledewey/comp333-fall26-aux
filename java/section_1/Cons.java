@@ -8,6 +8,10 @@ public class Cons implements IList {
 	this.tail = tail;
     }
 
+    // public int length() {
+    // 	return 1 + tail.length();
+    // }
+    
     // [3, 1, 2].length(): 3
     //   head: 3
     ///  tail: [1, 2]
@@ -32,5 +36,36 @@ public class Cons implements IList {
 
     public boolean isEmpty() {
 	return false;
+    }
+
+    // [2, 1, 3].addAmount(1): [3, 2, 4]
+    // [5].addAmount(4): [9]
+    //
+    //
+    // [3, 0].addAmount(2): [5, 2]
+    // new Cons(3, new Cons(0, new Nil())).addAmount(2) -->
+    //   new Cons(5, new Cons(2, new Nil()))
+    public IList addAmount(int amount) {
+	// this: [3, 0]; new Cons(3, new Cons(0, new Nil()))
+	// head: 3
+	// tail: [0]; new Cons(0, new Nil())
+	// amount: 2
+	//
+	// result: [5, 2]
+
+	//            [0].addAmount(2): [2]
+	// rest: [2]
+	// [2] --> [5, 2]
+	
+	//                          int
+	IList rest = tail.addAmount(...);
+
+	rest
+	...rest...
+	
+	IList rest = tail.addAmount(amount);
+	return new Cons(head + amount, rest);
+
+	// return new Cons(head + amount, tail.addAmount(amount));
     }
 }
