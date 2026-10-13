@@ -1,2 +1,4 @@
-// FOR NEXT TIME: methods
-public interface IList {}
+public interface IList {
+    public boolean isEmpty();
+    public int length();
+}
