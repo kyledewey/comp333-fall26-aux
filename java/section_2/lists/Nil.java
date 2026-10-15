@@ -7,4 +7,11 @@ public class Nil implements IList {
     public int length() {
 	return 0;
     }
+
+    // [].addAmount(4) --> []
+    // new Nil().addAmount(4) --> new Nil()
+    public IList addAmount(int value) {
+	//return new Nil();
+	return this;
+    }
 }
