@@ -6,7 +6,7 @@ public class Add {
 
     public static int add(int x, int y) {
 	// var: type inference - still statically typed
-	var temp = x + y;
+	var temp = x + y; // temp: int
 	temp = "foo";
 	return temp;
     }

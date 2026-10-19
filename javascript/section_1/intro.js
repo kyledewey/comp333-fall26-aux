@@ -12,6 +12,12 @@
 //   - Memory cost (need to store extra information to say
 //     what the types are)
 //
+//   x = 3;
+//   x = "foo";
+//
+//  Strong typing vs. weak typing
+//  
+//
 // add(2, 3) // returns 5
 // add("foo", "bar") // returns "foobar"
 //
