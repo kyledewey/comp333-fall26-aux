@@ -8,6 +8,7 @@ public interface IList {
     // [6].addAmount(2) --> [8]
     //
     // [8, 2, 4].addAmount(3) --> [11, 5, 7]
+    //   [8 + 3, 2 + 3, 4 + 3]
     // new Cons(8, new Cons(2, new Cons(4, new Nil()))).addAmount(3)
     //   new Cons(11, new Cons(5, new Cons(7, new Nil())))
     //

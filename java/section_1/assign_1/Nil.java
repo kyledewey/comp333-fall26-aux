@@ -14,11 +14,15 @@ public class Nil implements ImmutableList {
     } // hashCode
 
     public int length() {
+	// Nil is the empty list
 	return 0;
     }
+
+
     public int sum() { // empty list sum is defined as 0
 	return 0;
     }
+
     public ImmutableList append(final ImmutableList other) {
 	return null;
     }
