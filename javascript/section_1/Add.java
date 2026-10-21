@@ -1,4 +1,8 @@
 public class Add {
+    public void example() {
+	int result = add(2);
+    }
+    
     public static String add(String x, String y) {
 	String temp = x + y;
 	return temp;
@@ -7,7 +11,7 @@ public class Add {
     public static int add(int x, int y) {
 	// var: type inference - still statically typed
 	var temp = x + y; // temp: int
-	temp = "foo";
+	// temp = "foo";
 	return temp;
     }
 

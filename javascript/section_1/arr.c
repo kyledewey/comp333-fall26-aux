@@ -17,7 +17,7 @@ void print_element(int arr[], int index) {
 int main() {
   int arr[3] = { 5, 7, 9 };
   print_element(arr, 2);
-  print_element(arr, 5);
+  print_element(arr, -1234562345);
   return 0;
 }
 
