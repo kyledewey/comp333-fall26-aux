@@ -1,13 +1,14 @@
 #include "stdio.h"
 
-// MONDAY: go over array access in C vs. Java
-
 void print_element(int arr[], int index) {
-  printf("%i\n", arr[index]);
+  int element = arr[index];
+  printf("%i\n", element);
 }
 
 int main() {
-  int arr[3] = { 5, 6, 7 };
-  print_element(arr, 5);
+  int arr[1000];
+  printf("hi\n");
+  print_element(arr, 99);
+  //printf("%lu\n", sizeof(int));
   return 0;
 }
