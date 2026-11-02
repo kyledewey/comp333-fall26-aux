@@ -6,9 +6,7 @@ void print_element(int arr[], int index) {
 }
 
 int main() {
-  int arr[1000];
-  printf("hi\n");
-  print_element(arr, 99);
-  //printf("%lu\n", sizeof(int));
+  int arr[3] = {4, 2, 7};
+  print_element(arr, 3);
   return 0;
 }
